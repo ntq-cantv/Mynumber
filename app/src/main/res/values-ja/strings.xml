@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">マイナンバーデモ</string>
+    <string name="default_result">データなし</string>
+    <string name="button_text">マイナンバーカードから基本情報を取得</string>
+    <string name="title_result">結果:</string>
+    <string name="processing_init">🔄 セッションを初期化しています...</string>
+    <string name="error_no_data">❌ JPKIから返されたデータがありません</string>
+    <string name="error_get_info">❌ 情報取得失敗 – エラーコード: %1$d, 詳細: %2$d</string>
+    <string name="success_info">✅ 成功:\n- 氏名: %1$s\n- 住所: %2$s\n- 性別: %3$s\n- 生年月日: %4$s</string>
+    <string name="error_no_cert_data">❌ 証明書から返されたデータがありません</string>
+    <string name="error_cert_null">❌ 証明書が取得できません</string>
+    <string name="error_get_cert">❌ 証明書取得失敗 – エラーコード: %1$d, 詳細: %2$d</string>
+    <string name="error_init_failed">❌ 初期化失敗 – エラーコード: %1$d, 詳細: %2$d</string>
+</resources>
