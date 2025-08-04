@@ -56,16 +56,14 @@ fun JpkiBasicInfoScreen() {
             return@rememberLauncherForActivityResult
         }
 
-        val ok = data.getBooleanExtra("result", false)
-        if (ok) {
+        val err = data.getIntExtra("err_code", -1)
+        if (err == 0) {
             val name = data.getStringExtra("name")
             val address = data.getStringExtra("address")
             val gender = data.getStringExtra("gender")
             val birthdate = data.getStringExtra("date_of_birth")
-
             resultText = successInfoTextFormat.format(name, address, gender, birthdate)
         } else {
-            val err = data.getIntExtra("err_code", -1)
             val detail = data.getIntExtra("detail_code", -1)
             resultText = errorGetInfoTextFormat.format(err, detail)
         }
@@ -82,20 +80,23 @@ fun JpkiBasicInfoScreen() {
             processing = false
             return@rememberLauncherForActivityResult
         }
-        val errCode = data.getIntExtra("err_code", -1)
-        if (errCode == 0) {
-            // Thành công
-            val name = data.getStringExtra("name")
-            val address = data.getStringExtra("address")
-            val gender = data.getStringExtra("gender")
-            val birthdate = data.getStringExtra("date_of_birth")
 
-            resultText = successInfoTextFormat.format(name, address, gender, birthdate)
+        val ok = data.getBooleanExtra("result", false)
+        if (ok) {
+            val cert = data.getByteArrayExtra("p_cert")
+            if (cert != null) {
+                val intent = getExtractInfoIntent(cert)
+                getBasicInfoLauncher.launch(intent)
+            } else {
+                resultText = errorCertNullText
+                processing = false
+            }
         } else {
-            val detailCode = data.getIntExtra("detail_code", -1)
-            resultText = errorGetInfoTextFormat.format(errCode, detailCode)
+            val err = data.getIntExtra("err_code", -1)
+            val detail = data.getIntExtra("detail_code", -1)
+            resultText = errorGetCertTextFormat.format(err, detail)
+            processing = false
         }
-
     }
 
     val initLauncher = rememberLauncherForActivityResult(
