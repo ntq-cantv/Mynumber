@@ -3,7 +3,7 @@
     <string name="app_name">マイナンバーデモ</string>
     <string name="default_result">データなし</string>
     <string name="button_text">マイナンバーカードから基本情報を取得</string>
-    <string name="title_result">結果:</string>
+    <string name="title_result">結果: %s</string>
     <string name="processing_init">🔄 セッションを初期化しています...</string>
     <string name="error_no_data">❌ JPKIから返されたデータがありません</string>
     <string name="error_get_info">❌ 情報取得失敗 – エラーコード: %1$d, 詳細: %2$d</string>

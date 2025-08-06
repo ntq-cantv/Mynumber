@@ -3,7 +3,7 @@
     <string name="app_name">DemoMyNumber</string>
     <string name="default_result">No data available</string>
     <string name="button_text">Get basic information from MyNumber card</string>
-    <string name="title_result">Result:</string>
+    <string name="title_result">Result: %s</string>
     <string name="processing_init">🔄 Initializing session...</string>
     <string name="error_no_data">❌ No data returned from JPKI</string>
     <string name="error_get_info">❌ Failed to get information – Error Code: %1$d, Detail: %2$d</string>
